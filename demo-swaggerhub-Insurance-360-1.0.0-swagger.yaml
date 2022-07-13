@@ -1,0 +1,298 @@
+openapi: 3.0.1
+info:
+  title: Insurance 360
+  description: API to perform Inegrtaion with Guidewire
+  termsOfService: http://nousinfo.com/terms/
+  version: 1.0.0
+  license:
+    name: Nous Licence Policy
+    url: http://nousinfo.com
+paths:
+  /api/Insurance-360/policies/accounts/{accountId}:
+    get:
+      tags:
+        - employee-controller
+      operationId: getProductByName
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insurance-360'
+    put:
+      tags:
+        - employee-controller
+      operationId: updateProd
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Insurance-360'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Insurance-360'
+  /api/Insurance-360/policies/accounts/{accountId}/activities:
+    get:
+      tags:
+        - employee-controller
+      operationId: activities
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insurance-360'
+    post:
+      tags:
+        - employee-controller
+      operationId: activitiesss
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Insurance-360'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Insurance-360'
+  /api/Insurance-360/policies/accounts/{accountId}/activity-assignees:
+    get:
+      tags:
+        - employee-controller
+      operationId: activity-assignees
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insurance-360'
+  /api/Insurance-360/policies/accounts/{accountId}/activity-patterns:
+    get:
+      tags:
+        - employee-controller
+      operationId: activity-patterns
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insurance-360'
+  /api/Insurance-360/policies/accounts/{accountId}/contacts/{contactId}:
+    delete:
+      tags:
+        - employee-controller
+      operationId: deleteById
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: contactId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+    get:
+      tags:
+        - employee-controller
+      operationId: getactivity-patterns
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: contactId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insurance-360'
+    put:
+      tags:
+        - employee-controller
+      operationId: updategetactivity-patterns
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: contactId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Insurance-360'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Insurance-360'
+  /api/Insurance-360/policies/accounts/{accountId}/contacts:
+    get:
+      tags:
+        - employee-controller
+      operationId: getContacts
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Insurance-360'
+    post:
+      tags:
+        - employee-controller
+      operationId: postContacts
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Insurance-360'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Insurance-360'
+components:
+  schemas:
+    Insurance-360:
+      type: object
+      properties:
+        Account:
+          type: array
+          items:
+            type: object
+            properties:
+              accountHolder : 
+                type: object
+                properties:
+                  displayName: 
+                    type: string
+                  accountId:
+                    type: string
+              accountNumber :
+                type: string
+              accountStatus :
+                type: object
+                properties:
+                  code:
+                    type: string
+                  name :
+                    type : string
+              accountStatusUpdateTime :
+                type: string
+              createdDate :
+                type: string
+              frozen :
+                type: string
+        AccountContact:
+          type: array
+          items:
+            type: object
+            properties:
+              companyName :
+                type: string
+              
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/demo-swaggerhub/Insurance-360/1.0.0
